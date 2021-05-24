@@ -3,7 +3,7 @@ kind: Kustomization
 commonLabels:
   app: kubecamp
 bases:
-  - https://github.com/agmsb/kubecamp-blueprints/gke-standalone-app/resources
+  - https://github.com/agmsb/kubecamp-blueprints/team-a/resources
 patchesStrategicMerge:
 - service.yaml
 configMapGenerator:
