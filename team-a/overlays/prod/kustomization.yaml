@@ -1,0 +1,12 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+commonLabels:
+  app: kubecamp
+bases:
+  - https://github.com/agmsb/kubecamp-blueprints/gke-standalone-app/resources
+patchesStrategicMerge:
+- service.yaml
+configMapGenerator:
+- name: fancy-features
+  literals:    
+  - ENABLE_FEATURE="the stable feature that belongs in prod"

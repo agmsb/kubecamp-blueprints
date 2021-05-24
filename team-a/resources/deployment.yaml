@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kubecamp-app
+spec:
+  selector:
+    matchLabels:
+      app: kubecamp-app
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: kubecamp-app
+    spec:
+      containers:
+      - name: kubecamp-app
+        image: gcr.io/agmsb-k8s/kubecamp-app
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 5000
+        env:
+        - name: ENABLE_FEATURE
+          valueFrom:
+            configMapKeyRef:
+              name: fancy-features
+              key: ENABLE_FEATURE
