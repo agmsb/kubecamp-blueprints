@@ -3,9 +3,7 @@ kind: Service
 metadata:
   name: kubecamp-svc
 spec:
-  selector:
-    app: kubecamp-app
   ports:
   - protocol: "TCP"
     port: 80
-    targetPort: 5000s
+    targetPort: 5000
